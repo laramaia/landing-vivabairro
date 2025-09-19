@@ -124,3 +124,32 @@ button:hover {
     width: 160px;
     height: 100px;
 }
+
+.resumo {
+    display: flex;
+    padding-top: 90px;
+}
+
+.o-que-e {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 17px;
+}
+
+.retangulo {
+    background-color: #137A6D;
+    width: 400px;
+    margin-top: 18px;
+    padding: 10px 0 10px 85px;
+    color: white;
+}
+
+.resumo-imagem {
+    background-color: #40AA9D; /*40AA9D e 185B5A*/
+}
+
+.resumo-imagem img {
+    height: 460px;
+    width: 390px
+}
