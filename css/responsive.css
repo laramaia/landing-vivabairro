@@ -1,0 +1,115 @@
+@media (max-width: 1400px) {
+
+.nav-prototype-btn {
+    font-size: 0.9rem;
+}
+
+#sobre p {
+    font-size: clamp(1rem, 4vw, 2.1rem);
+}
+
+.casa-imagem1 {
+    top: 26%;
+    left: 30%;
+}
+
+.casa-imagem2 {
+    bottom: 21.3%;
+    right: 56%;
+    max-width: 128px;
+}
+
+.cta-woman-image {
+    position: absolute;
+    left: -80px;
+    top: 13%;
+    width: 30%;
+    height: auto;
+    z-index: 10;
+    object-fit: contain;
+    margin: 15px;
+}
+
+
+.cta-card {
+    background: var(--primary-green-light);
+    padding: var(--spacing-3xl);
+    border-radius: var(--radius-2xl);
+    box-shadow: var(--shadow-xl);
+    text-align: center;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-card h2 {
+    font-family: var(--font-accent);
+    font-style: italic;
+    color: var(--white);
+    font-size: clamp(2rem, 4vw, 2.6rem);
+    margin-bottom: var(--spacing-lg);
+    position: relative;
+    z-index: 2;
+}
+
+.cta-card p {
+    color: var(--white);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: var(--spacing-2xl);
+    opacity: 0.95;
+    position: relative;
+    z-index: 2;
+}
+
+@media (max-width: 1000px) {
+
+    :root {
+        --spacing-xs: 0.5rem;
+        --spacing-sm: 1rem;
+        --spacing-md: 0.6rem;
+        --spacing-lg: 1rem;
+        --spacing-xl: 3rem;
+        --spacing-2xl: 4rem;
+        --spacing-3xl: 6rem;
+    }
+
+    .menu ul li a {
+        font-size: 1rem;
+    }
+    
+    .nav-prototype-btn {
+    font-size: 0.8rem;
+    height: 30px;
+    width: 150px;
+    }
+
+    .banner img {
+        max-width: 450px;
+    }
+
+    .banner p:first-of-type {
+        font-size: clamp(1.8rem, 2vw, 2rem);
+    }
+
+    .banner span {
+        font-size: clamp(3rem, 5vw, 5rem);
+        line-height: 0.9;
+    }
+
+    .apresentacao p:nth-of-type(2) {
+        font-size: 1rem;
+    }
+
+    button {
+        font-size: 0.8rem;
+        max-width: 200px;
+    }
+}
+
+/* @media (max-width: 1000px) {
+    .menu ul li a {
+        font-size: 0.3rem;
+    }
+ }  */
+}

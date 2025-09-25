@@ -276,6 +276,7 @@ nav {
 .nav-prototype-btn {
     background: linear-gradient(135deg, var(--secondary-orange), #e6820a);
     color: var(--white);
+    text-decoration: none;
     border: none;
     padding: var(--spacing-xs) var(--spacing-lg);
     border-radius: var(--radius-lg);
@@ -286,7 +287,9 @@ nav {
     cursor: pointer;
     white-space: nowrap;
     height: 40px;
-    width: 12%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .nav-prototype-btn:hover {
@@ -435,7 +438,7 @@ button a {
 
 .casa-imagem1, .casa-imagem2 {
     position: absolute;
-    max-width: 200px;
+    max-width: 230px;
     height: auto;
 }
 
@@ -646,7 +649,6 @@ button a {
     min-height: 200px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
 }
 
 .beneficio-fundo:hover {
