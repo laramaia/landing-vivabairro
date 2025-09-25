@@ -228,6 +228,112 @@ header {
     padding: 0;
 }
 
+/* Mobile Menu Toggle */
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+}
+
+.mobile-menu-toggle span {
+    width: 100%;
+    height: 3px;
+    background-color: var(--gray-700);
+    border-radius: 2px;
+    transition: var(--transition-normal);
+    transform-origin: center;
+}
+
+.mobile-menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(7px, 7px);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Desktop Navigation */
+.desktop-nav {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+}
+
+/* Mobile Navigation */
+.mobile-nav {
+    position: fixed;
+    top: 80px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 80px);
+    background: var(--white);
+    transition: var(--transition-normal);
+    overflow-y: auto;
+    z-index: 999;
+}
+
+.mobile-nav.active {
+    left: 0;
+}
+
+.mobile-nav ul {
+    display: flex;
+    flex-direction: column;
+    padding: var(--spacing-lg);
+    gap: var(--spacing-lg);
+    list-style: none;
+    margin: 0;
+}
+
+.mobile-nav ul li a {
+    display: block;
+    padding: var(--spacing-md);
+    text-decoration: none;
+    color: var(--gray-700);
+    font-weight: 500;
+    font-size: 1.125rem;
+    border-radius: var(--radius-md);
+    transition: var(--transition-fast);
+}
+
+.mobile-nav ul li a:hover {
+    background-color: var(--gray-50);
+    color: var(--primary-green);
+}
+
+.mobile-nav .nav-prototype-btn.mobile {
+    margin-top: var(--spacing-lg);
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Desktop/Mobile button visibility */
+.nav-prototype-btn.desktop {
+    display: inline-block;
+}
+
+.nav-prototype-btn.mobile {
+    display: none;
+}
+
+/* Prevent scrolling when mobile menu is open */
+body.mobile-menu-open {
+    overflow: hidden;
+}
+
 nav {
     display: flex;
     flex: 1;
@@ -394,7 +500,7 @@ button a {
     font-weight: 600;
     color: var(--gray-900);
     flex: 1;
-    z-index: 2;
+    z-index: 1;
     position: relative;
 }
 
@@ -421,7 +527,7 @@ button a {
 .mockup-imagem {
     max-height: 400px;
     width: auto;
-    z-index: 2;
+    z-index: 3;
 }
 
 .circulo2 {
@@ -1016,13 +1122,13 @@ button a {
 
 .cta-woman-image {
     position: absolute;
-    left: -80px;
+    left: calc(50% - var(--container-xl)/2 - 80px);
     top: 0;
-    width: 30%;
+    width: clamp(200px, 25%, 350px);
     height: auto;
     z-index: 10;
     object-fit: contain;
-    margin: 15px;
+    margin: 0;
 }
 
 .cta-container {
@@ -1120,6 +1226,11 @@ button a {
     text-decoration: none;
     color: var(--secondary-orange);
     font-weight: 700;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    line-height: inherit;
 }
 
 /* Responsive Design for CTA Section */
@@ -1269,45 +1380,88 @@ button a {
     }
 }
 
-/* Responsive Design */
+/* Base Mobile-First Styles */
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    min-width: 320px;
+}
+
+/* Touch-friendly interactions */
+button, 
+.nav-prototype-btn,
+.membro,
+.cta-button {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+    touch-action: manipulation;
+}
+
+/* Improve text readability on mobile */
+p {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegiblity;
+}
+
+/* Ensure images are responsive */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Mobile menu improvements */
+.menu {
+    transition: var(--transition-normal);
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.95);
+}
+
+/* Scrollbar styling for webkit browsers */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--gray-100);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-green-light);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-green);
+}
+
+/* Focus styles for accessibility */
+button:focus,
+.nav-prototype-btn:focus,
+.menu ul li a:focus,
+.cta-button:focus {
+    outline: 2px solid var(--primary-green);
+    outline-offset: 2px;
+}
+
+/* Prevent horizontal scrolling */
+.banner, 
+#sobre, 
+#objetivo, 
+#beneficios, 
+#relatos, 
+#equipe, 
+#cta-section {
+    overflow-x: hidden;
+}
+
+/* Legacy responsive overrides - keep for compatibility */
 @media (max-width: 768px) {
-    .banner {
-        flex-direction: column;
-        text-align: center;
-        gap: var(--spacing-2xl);
+    .menu {
+        padding: var(--spacing-xs) var(--spacing-sm);
     }
-
-    .banner img {
-        max-width: 100%;
-        order: -1;
-    }
-
-    #sobre {
-        flex-direction: column;
-        text-align: center;
-        gap: var(--spacing-xl);
-    }
-
-    .circulo1, .circulo2 {
-        width: 300px;
-        height: 200px;
-    }
-
-    #objetivo {
-        flex-direction: column;
-        gap: var(--spacing-xl);
-    }
-
-    .resumo-imagem {
-        width: 100%;
-        max-width: 400px;
-    }
-
-    .menu ul {
-        gap: var(--spacing-md);
-    }
-
-    .menu ul li a {
-        font-size: 0.9rem;
+    
+    .nav-prototype-btn {
+        padding: var(--spacing-xs) var(--spacing-sm);
+        font-size: 0.8rem;
     }
 }
